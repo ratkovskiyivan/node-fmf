@@ -1,8 +1,14 @@
 import express from 'express'
 import config from 'config'
-import {router as ugnRouter} from './routes/ugn.router.js'
-import {router as directionRouter} from './routes/direction.route.js'
-import {router as profileRouter} from './routes/profile.router.js'
+import {router as ugnRoute} from './routes/ugn.route.js'
+import {router as directionRoute} from './routes/direction.route.js'
+import {router as profileRoute} from './routes/profile.route.js'
+import {router as userRoute} from './routes/user.route.js'
+import {router as departamentRoute} from './routes/departament.route.js'
+import {router as informationProfileRoute} from './routes/informationProfile.route.js'
+import {router as disciplineEntryRoute} from './routes/disciplineEntry.route.js'
+import {router as subjectRoute} from './routes/subject.route.js'
+import {router as courseRoute} from './routes/course.route.js'
 
 const app = express()
 
@@ -16,9 +22,15 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/api', ugnRouter)
-app.use('/api', directionRouter)
-app.use('/api', profileRouter)
+app.use('/api', ugnRoute)
+app.use('/api', directionRoute)
+app.use('/api', profileRoute)
+app.use('/api', userRoute)
+app.use('/api', departamentRoute)
+app.use('/api', informationProfileRoute)
+app.use('/api', disciplineEntryRoute)
+app.use('/api', subjectRoute)
+app.use('/api', courseRoute)
 
 
 app.listen(PORT, () => {
